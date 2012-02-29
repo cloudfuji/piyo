@@ -23,7 +23,7 @@ module Piyo
       new_notifications = Piyo::BushidoPoller.poll(@bushido_url, @auth_token, @last_id)
       recent_highest_id = new_notifications.collect { |item| item['notification']['id'].to_i }.sort.last || @last_id
 
-      new_notifications = new_notifications[-5..-1] if first_time
+      new_notifications = new_notifications[-5..-1] if first_time && new_notifications.count > 5
       new_notifications.each { |notification| Growl.bushido_growl(notification) }
 
       if recent_highest_id > @last_id

@@ -6,9 +6,17 @@ module Piyo
       def icon
         "#{File.dirname(__FILE__)}/../../resources/sofuji.png"
       end
+
+      def sticky_terms
+        ENV['STICKY'] ||= "important,critical,urgent"
+        @@sticky_terms ||= ENV['STICKY'].split(",")
+      end
       
       def notify(title, message)
-        sticky = title.downcase.include?("sean") || message.downcase.include?("sean")
+        sticky = false
+        sticky_terms.each do |term|
+          sticky = true if title.downcase.include?(term) || message.downcase.include?(term)
+        end
 
         ::Growl.notify(message,
                        :title   => title,
