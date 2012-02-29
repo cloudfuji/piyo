@@ -9,6 +9,6 @@ Usage:
     git clone https://github.com/Bushido/piyo.git
     cd piyo
     bundle install
-    AUTH_TOKEN=<your bushido auth token> bundle exec bin/piyo
+    STICKY='important,critical,bushido' AUTH_TOKEN=<your bushido auth token> bundle exec bin/piyo
 
 And you should receive notifications for as long as you have piyo running!
