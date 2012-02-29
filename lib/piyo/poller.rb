@@ -7,7 +7,7 @@ module Piyo
     @@notifications = []
 
     def self.poll(bushido_url, auth_token, last_id)
-      puts "Retrieving new notifications..."
+      print "Retrieving new notifications... "
       
       begin
         _notifications = JSON(RestClient.get("#{bushido_url}/notifications.json",
