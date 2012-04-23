@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "piyo"
   s.version     = Piyo::VERSION
   s.authors     = ["Sean Grove"]
-  s.email       = ["s@bushi.do"]
+  s.email       = ["s@cloudfuji.com"]
   s.homepage    = ""
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}

@@ -3,14 +3,14 @@ require 'rest-client'
 require 'json'
 
 module Piyo
-  class BushidoPoller
+  class CloudfujiPoller
     @@notifications = []
 
-    def self.poll(bushido_url, auth_token, last_id)
+    def self.poll(cloudfuji_url, auth_token, last_id)
       print "Retrieving new notifications... "
       
       begin
-        _notifications = JSON(RestClient.get("#{bushido_url}/notifications.json",
+        _notifications = JSON(RestClient.get("#{cloudfuji_url}/notifications.json",
                                              {:params =>
                                                {:auth_token => auth_token,
                                                  :last_id => last_id}}))
@@ -28,7 +28,7 @@ module Piyo
         
         puts "Finished!"
         
-        return _new
+        return _new.reverse
       rescue => e
         puts e
         return []

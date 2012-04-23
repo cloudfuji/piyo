@@ -19,8 +19,8 @@ module Piyo
         end
 
         ::Growl.notify(message,
-                       :title   => title,
-                       :icon    => icon,
+                       :title  => title,
+                       :icon   => icon,
                        :sticky => sticky)
       end
 
@@ -28,7 +28,7 @@ module Piyo
         notify("Example", "You clicked! Good job!")
       end
 
-      def bushido_growl(notification)
+      def cloudfuji_growl(notification)
         notification = notification['notification']
         notify("#{notification['app_name']} | #{notification['title']}", "#{notification['body']}")
       end
